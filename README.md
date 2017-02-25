@@ -10,4 +10,4 @@ Críticas/Dúvias/Sugestões serão sempre bem vidas!
 
 ***
 
-**Para acessar a documentação [clique aqui](https://github.com/angelobelchior/prism-xamarin-forms/wiki)**
+#**Para acessar a documentação em português [clique aqui](https://github.com/angelobelchior/prism-xamarin-forms/wiki)**
