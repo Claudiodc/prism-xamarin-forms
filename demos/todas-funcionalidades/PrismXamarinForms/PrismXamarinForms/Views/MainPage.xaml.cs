@@ -7,7 +7,6 @@ namespace PrismXamarinForms.Views
         public MainPage()
         {
             InitializeComponent();
-
         }
     }
 }

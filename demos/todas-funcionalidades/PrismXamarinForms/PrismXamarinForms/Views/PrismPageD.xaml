@@ -8,6 +8,7 @@
              >
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Texto}" />
         <Button Text="Voltar" Command="{Binding VoltarCommand}" />
     </StackLayout>
 

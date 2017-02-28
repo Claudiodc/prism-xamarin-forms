@@ -101,7 +101,7 @@ namespace PrismXamarinForms.ViewModels
             //Ao tocar no SMS automáticamente seu App abre com a notícia selecionada, sendo que a página da categoria daquela notícia também foi aberta!
             //A url ficaria algo como "/Principal/Navegacao/Categorias?=idCategoria=1/Noticias/Noticia?idNoticia=123456"
             //Sensacional, certo? Podemos simular algo parecido aqui...
-            url += "/PrismPageD";
+            url += "/PrismPageD?texto=Simulando um Deep Linking";
 
             var uri = new Uri(url, uriKind);
 

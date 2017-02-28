@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:c="clr-namespace:PrismXamarinForms.Converters;assembly=PrismXamarinForms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              x:Class="PrismXamarinForms.Views.PrismPageA"
              Title="EventToCommandBehavior"
              >
+    
+    <!--
+    No XAML, até então, só é possível fazer binding em propriedades.
+    Não é possível criar algo como <ListView ItemTapped={ItemTappedCommand} /> pois ItemTapped é um evento.
+    A ideia do EventToCommandBehavior é simular esse binding.
+    Pode parecer um pouco burocrático ter que fazer isso. 
+    Os controles do Xamarin Forms já deveriam trazer a propriedade Command nas ações padrões (Clicked, por exemplo).
+    Porém, existe casos que eu queria fazer um bind em uma outra ação que não seja a padrão, e é ai que o EventToCommandBehavior entra!
+    
+    No exemplo abaixo, estamos criando um bind para o evento ItemTapped da ListView, que até hoje não existe... :(
+    -->
 
-    <Label Text="Em breve..." />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ListView ItemsSource="{Binding Itens}">
+        <ListView.Behaviors>
+            <b:EventToCommandBehavior EventName="ItemTapped" 
+                                      Command="{Binding ItemTappedCommand}"
+                                      EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+        </ListView.Behaviors>
+    </ListView>
 
 </ContentPage>
