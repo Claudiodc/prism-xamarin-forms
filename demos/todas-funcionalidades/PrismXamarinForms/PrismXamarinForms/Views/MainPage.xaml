@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismXamarinForms.Views.MainPage"
+             Title="Main Page">
+    
+    <!--
+    A linha prism:ViewModelLocator.AutowireViewModel="True"
+    indica que essa view estará atrelada a uma ViewModel cujo o nome é o mesmo nome da View mais o sufixo ViewModel.
+    Nesse caso temos, na pasta ViewModels, a classe MainPageViewModel
+    -->
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Esse parâmetro será passado para a Tabbed Page." />
+        
+        <Entry Text="{Binding Parametro}" Placeholder="Parâmetro" />
+
+        <StackLayout Orientation="Horizontal">
+            <Switch IsToggled="{Binding NavegacaoAbsoluta}" />
+            <Label Text="Navegação Absoluta" />
+        </StackLayout>
+
+        <Button Text="Navegar" Command="{Binding NavegarCommand}" />
+    </StackLayout>
+    
+</ContentPage>
