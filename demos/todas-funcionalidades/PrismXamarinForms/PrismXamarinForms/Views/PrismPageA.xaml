@@ -20,6 +20,13 @@
     No exemplo abaixo, estamos criando um bind para o evento ItemTapped da ListView, que até hoje não existe... :(
     -->
 
+    <!--
+    Aqui é declarado o uso do converter itemTappedEventArgsConverter
+    Ao tocar na lista, o objeto que se tem é do tipo ItemTappedEventArgs
+    Esse converter obtém o valor do conteúdo da lista (itemTappedEventArgs.Item) e passa como parâmetro no Command
+    Nesse caso estamos tratando apenas string, poderia ser um objeto completo.
+    Sendo assim em nossa ViewModel temos um DelegateCommand<string>
+    -->
     <ContentPage.Resources>
         <ResourceDictionary>
             <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />

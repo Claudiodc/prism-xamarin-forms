@@ -1,9 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PrismXamarinForms.ViewModels
 {
@@ -22,6 +19,7 @@ namespace PrismXamarinForms.ViewModels
         public DelegateCommand DisplayActionSheetDestruicaoCommand { get; set; }
 
         private readonly IPageDialogService _pageDialogService;
+
         public PrismPageBViewModel(IPageDialogService pageDialogService)
         {
             this._pageDialogService = pageDialogService;
