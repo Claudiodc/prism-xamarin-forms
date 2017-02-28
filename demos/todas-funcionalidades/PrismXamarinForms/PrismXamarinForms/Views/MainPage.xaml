@@ -5,6 +5,12 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismXamarinForms.Views.MainPage"
              Title="Main Page">
+    
+    <!--
+    A linha prism:ViewModelLocator.AutowireViewModel="True"
+    indica que essa view estará atrelada a uma ViewModel cujo o nome é o mesmo nome da View mais o sufixo ViewModel.
+    Nesse caso temos, na pasta ViewModels, a classe MainPageViewModel
+    -->
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="Esse parâmetro será passado para a Tabbed Page." />

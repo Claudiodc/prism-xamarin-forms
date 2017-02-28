@@ -4,7 +4,16 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismXamarinForms.Views.PrismPageB"             
-             Title="Pagina B"
+             Title="Page Dialog"
              >
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding OpcaoEscolhida}" />
+
+        <Button Text="Alerta com um Botão" Command="{Binding DisplayAlertUmBotaoCommand}" />
+        <Button Text="Alerta com Botão Cancelar" Command="{Binding DisplayAlertDoisBotoesCancelCommand}" />
+        <Button Text="Lista de botões" Command="{Binding DisplayActionSheetCommand}" />
+        <Button Text="Lista de botões e um de destruição" Command="{Binding DisplayActionSheetDestruicaoCommand}" />
+    </StackLayout>
   
 </ContentPage>

@@ -42,6 +42,7 @@
     <Compile Include="ViewModels\PrismPageAViewModel.cs" />
     <Compile Include="ViewModels\PrismPageBViewModel.cs" />
     <Compile Include="ViewModels\PrismPageCViewModel.cs" />
+    <Compile Include="ViewModels\PrismPageDViewModel.cs" />
     <Compile Include="ViewModels\PrismTabbedPageViewModel.cs" />
     <Compile Include="Views\PrismMasterDetailPage.xaml.cs">
       <DependentUpon>PrismMasterDetailPage.xaml</DependentUpon>
@@ -57,6 +58,9 @@
     </Compile>
     <Compile Include="Views\PrismPageC.xaml.cs">
       <DependentUpon>PrismPageC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrismPageD.xaml.cs">
+      <DependentUpon>PrismPageD.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PrismTabbedPage.xaml.cs">
       <DependentUpon>PrismTabbedPage.xaml</DependentUpon>
@@ -149,6 +153,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\PrismPageC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PrismPageD.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

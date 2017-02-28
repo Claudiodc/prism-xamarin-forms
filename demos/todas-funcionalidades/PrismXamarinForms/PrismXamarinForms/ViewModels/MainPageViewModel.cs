@@ -25,6 +25,13 @@ namespace PrismXamarinForms.ViewModels
             set { SetProperty(ref _navegacaoAbsoluta, value); }
         }
 
+        private bool _deepLinking;
+        public bool DeepLinking
+        {
+            get { return _deepLinking; }
+            set { SetProperty(ref _deepLinking, value); }
+        }
+
         //DelegaCommand implementa o ICommand adicionando várias funcionalidades
         public DelegateCommand NavegarCommand { get; set; }
 
@@ -46,7 +53,7 @@ namespace PrismXamarinForms.ViewModels
             //Sendo assim, se o método PodeNavegar retornar true, o botão ficará. Caso contrário, desabilitado.
             this.NavegarCommand = new DelegateCommand(Navegar, PodeNavegar)
                                                      .ObservesProperty(() => this.Parametro);
-                                                   //.ObservesProperty(() => this.OutroParametro);
+            //.ObservesProperty(() => this.OutroParametro);
         }
 
         private bool PodeNavegar()
@@ -84,6 +91,18 @@ namespace PrismXamarinForms.ViewModels
             //Na navegação com Prism, por ser feita via string, deve-se usar uma página existente, nesse caso a PrismNavigationPage.
 
             var url = $"/PrismMasterDetailPage/PrismNavigationPage/PrismTabbedPage?parametro={this._parametro}/PrismPageB";
+
+            //Outra feature sensacional do Prism, é que podemos empilhar uma navegação, abrindo uma sequencia de páginas...
+            //Isso é importante quando termos o Deep Linking.
+            //Imagine um cenário onde você recebe um SMS com uma notícia. 
+            //Seu App de Notícias tem uma página inicial com categorias, 
+            //uma outra página com as chamadas das notícias de uma determinada categoria, 
+            //e uma página com a noticia selecionada.
+            //Ao tocar no SMS automáticamente seu App abre com a notícia selecionada, sendo que a página da categoria daquela notícia também foi aberta!
+            //A url ficaria algo como "/Principal/Navegacao/Categorias?=idCategoria=1/Noticias/Noticia?idNoticia=123456"
+            //Sensacional, certo? Podemos simular algo parecido aqui...
+            url += "/PrismPageD";
+
             var uri = new Uri(url, uriKind);
 
             await this._navigationService.NavigateAsync(uri);

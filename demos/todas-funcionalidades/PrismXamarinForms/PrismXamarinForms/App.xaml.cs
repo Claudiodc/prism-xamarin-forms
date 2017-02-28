@@ -23,6 +23,7 @@ namespace PrismXamarinForms
             Container.RegisterTypeForNavigation<PrismPageA>();
             Container.RegisterTypeForNavigation<PrismPageB>();
             Container.RegisterTypeForNavigation<PrismPageC>();
+            Container.RegisterTypeForNavigation<PrismPageD>();
         }
     }
 }

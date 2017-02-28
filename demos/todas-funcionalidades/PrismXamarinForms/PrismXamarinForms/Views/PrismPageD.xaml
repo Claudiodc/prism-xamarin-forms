@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="PrismXamarinForms.Views.PrismPageC"             
-             Title="Messaging"
+             x:Class="PrismXamarinForms.Views.PrismPageD"
+             Title="Página D"
              >
 
-    <Label Text="Em breve..." />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Button Text="Voltar" Command="{Binding VoltarCommand}" />
+    </StackLayout>
 
 </ContentPage>
