@@ -1,7 +1,9 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using PrismXamarinForms.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,10 +17,17 @@ namespace PrismXamarinForms.ViewModels
 
         public DelegateCommand<string> ItemTappedCommand { get; set; }
 
-        public PrismPageAViewModel(INavigationService navigationService)
+        public PrismPageAViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
         {
+            //Nesse ponto, a view model se registra para ouvir um evento
+            //Toda vez que alguém disparar o evento NovoItemAdicionadoNaListaEvent um item é adicionado na lista de Itens
+            eventAggregator.GetEvent<NovoItemAdicionadoNaListaEvent>().Subscribe(item =>
+            {
+                this.Itens.Add($"Item de evento: {item}");
+            });
+
             this.Itens = new ObservableCollection<string>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
                 this.Itens.Add($"Item {i}");
 
             this.ItemTappedCommand = new DelegateCommand<string>((linha) =>

@@ -4,9 +4,15 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismXamarinForms.Views.PrismPageC"             
-             Title="Messaging"
+             Title="Event Aggregation"
              >
 
-    <Label Text="Em breve..." />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="40" Spacing="20">
+        <Label Text="Após clicar no botão, um item será adicionado na lista da aba EventToCommandBehavior"
+               LineBreakMode="WordWrap"
+               />
+        <Entry Text="{Binding Item}" />
+        <Button Text="Adicione um Item" Command="{Binding IncluirItemNaListaCommand}" />
+    </StackLayout>
 
 </ContentPage>

@@ -7,9 +7,9 @@
                   Title="Master Detail"
                   >
     <MasterDetailPage.Master>
-        <ContentPage Title="Default">
+        <ContentPage Title="Default" Padding="60">
             <StackLayout>
-
+                <Label Text="{Binding MensagemVindaDeUmEvento}" />
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>
