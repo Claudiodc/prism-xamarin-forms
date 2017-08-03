@@ -9,7 +9,7 @@
              Title="Event To Command"
 			 Icon="heart.png"
              >
-    
+
     <!--
     No XAML, até então, só é possível fazer binding em propriedades.
     Não é possível criar algo como <ListView ItemTapped={ItemTappedCommand} /> pois ItemTapped é um evento.
@@ -40,6 +40,16 @@
                                       Command="{Binding ItemTappedCommand}"
                                       EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
         </ListView.Behaviors>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding .}">
+                    <TextCell.ContextActions>
+                        <MenuItem Text="Ação"/>
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
 
 </ContentPage>
