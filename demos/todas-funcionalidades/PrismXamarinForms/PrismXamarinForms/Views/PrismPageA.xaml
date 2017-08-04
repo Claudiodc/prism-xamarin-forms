@@ -34,7 +34,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ListView ItemsSource="{Binding Itens}">
+    <ListView 
+        x:Name="listView"
+        ItemsSource="{Binding Itens}">
         <ListView.Behaviors>
             <b:EventToCommandBehavior EventName="ItemTapped" 
                                       Command="{Binding ItemTappedCommand}"
@@ -43,9 +45,17 @@
 
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding .}">
+                <TextCell
+                    x:Name="textCell"
+                    Text="{Binding .}">
+                    <!--Veja o arquivo style.xml da pasta 
+                        "Resources/values" do projeto PrismXamarinForms.Droid-->
                     <TextCell.ContextActions>
-                        <MenuItem Text="Ação"/>
+                        <MenuItem 
+                            Text="Ação"
+                            Command="{Binding ItemTappedCommand}"
+                            BindingContext="{Binding Source={x:Reference listView}, Path=BindingContext}"
+                            CommandParameter="{Binding Source={x:Reference textCell}, Path=BindingContext}"/>
                     </TextCell.ContextActions>
                 </TextCell>
             </DataTemplate>
